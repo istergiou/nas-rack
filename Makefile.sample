@@ -1,0 +1,9 @@
+SLIC3R_CONF=../slic3r.ini
+CURA_CONF=../curaengine.conf
+OPENSCAD_OPTS=--enable=text
+
+include ../Makefile.inc
+
+# or
+# include ../Makefile.inc
+# override SLIC3R_CONF=../slic3r.conf

@@ -1,0 +1,39 @@
+https://www.gnu.org/software/make/manual/html_node/Echoing.html
+
+http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
+
+http://www.nondot.org/sabre/Mirrored/GNUMake/make_toc.html#SEC22
+
+
+https://www.gnu.org/software/make/manual/make.html#Variables-Simplify
+
+objects = main.o kbd.o command.o display.o \
+          insert.o search.o files.o utils.o
+
+edit : $(objects)
+        cc -o edit $(objects)
+
+
+https://www.gnu.org/software/make/manual/make.html#Automatic-Variables
+
+foo.o : foo.c
+        cc -c $(CFLAGS) $^ -o $@
+		
+‘$@’ is the target
+‘$^’ is a list of all the prerequisites of the rule
+‘$<’ is just the first prerequisite
+`$?' only those prerequisites that have changed
+$* The stem with which an implicit rule matches
+
+targets : dependencies ; command
+        command
+        ...
+		
+objects = foo.o bar.o
+
+all: $(objects)
+
+$(objects): %.o: %.c
+        $(CC) -c $(CFLAGS) $< -o $@
+		
+		
